@@ -7,11 +7,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-     <meta property="og:title" content="Safa'z Product">
-    <meta property="og:description" content="Check out our topnotch products!">
-    <meta property="og:image" content="https://safazzzz.github.io/.comm/default.jpg">
-    <meta property="og:url" content="https://safazzzz.github.io/.comm/product.html">
-    <meta property="og:type" content="website">
+  <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5f3a3a3a3a3a3a3a3a3a3a3a&product=custom-share-button"></script>
+
+<!-- Update your OG tags -->
+<meta property="og:title" content="Safa'z Premium Skincare Products">
+<meta property="og:description" content="Check out our topnotch skincare products!">
+<meta property="og:image" content="https://safazzzz.github.io/.comm/s1.jpg">
+<meta property="og:url" content="https://safazzzz.github.io/.comm/product.html">
+<meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -1222,14 +1225,14 @@ function showProducts(category, el) {
                 <button class="btn buyBtn" onclick="buyNow('${category}', ${i}, this)">Buy Now</button>
                 
                 <button class="btn share-btn" onclick="shareProduct('${category}', ${i}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')">
-                    <span class="share-icon">Share</span>📤 
-                </button>
+    <span class="share-icon">Share</span>📤
+    <div class="sharethis-inline-share-buttons" data-sharethis-website="safazzzz.github.io" data-sharethis-url="https://safazzzz.github.io/.comm/product.html?img=${encodeURIComponent(p.img)}&cat=${category}&idx=${i}"></div>
+</button>
             </div>
         </div>`;
     });
 }
 
-// Share Product Function
 async function shareProduct(category, index, name, price, img) {
     const cleanName = name.replace(/<[^>]*>?/gm, '');
     const baseUrl = 'https://safazzzz.github.io/.comm/product.html';
@@ -1849,6 +1852,7 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
+
 
 
 
