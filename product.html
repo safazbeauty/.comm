@@ -7,6 +7,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+     <meta property="og:title" content="Safa'z Product">
+    <meta property="og:description" content="Check out our topnotch products!">
+    <meta property="og:image" content="https://safazzzz.github.io/.comm/images/default.jpg">
+    <meta property="og:url" content="https://safazzzz.github.io/.comm/product.html">
+    <meta property="og:type" content="website">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -1169,11 +1174,11 @@ let cart=[];
 
 const products = {
     faceShiner: [
-        {name: "<span style='font-size: 0.6rem;'>Safa'z 24k Gold Oxidizing Skin Polish Large Pack,(1000ml)peeling solution & (500grams) blonder powder", img: "s1.jpg", price: 2999, original: 3250},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z Gold 24k Skin Polish Peeling solution(200ml) & Blonder Powder(200 grams)", img: "s2.jpg", price: 750, original: 850},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150grams)", img: "s3.jpg", price: 999, original: 1199, buyTwoPrice: 1899},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z All in One Ready 2 White Saffaron Urgent Facial (300grams)", img: "s4.jpg", price: 1199, original: 1299, buyTwoPrice: 1999},
-        {name: "<span style='font-size: 0.6rem;'>Safa'z Natural Skin ShinerSoothing Aloevera(500ml)", img: "s5.jpg", price: 699, original: 799, buyTwoPrice: 1399}
+        {name: "<span style='font-size: 0.6rem;'>Safa'z 24k Gold Oxidizing Skin Polish Large Pack,(1000ml)peeling solution & (500grams) blonder powder", img: "https://safazzzz.github.io/.comm/images/s1.jpg", price: 2999, original: 3250},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z Gold 24k Skin Polish Peeling solution(200ml) & Blonder Powder(200 grams)", img: "https://safazzzz.github.io/.comm/images/s2.jpg", price: 750, original: 850},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z Hand & Foot Instant Whitening Cream (150grams)", img: "https://safazzzz.github.io/.comm/images/s3.jpg", price: 999, original: 1199, buyTwoPrice: 1899},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z All in One Ready 2 White Saffaron Urgent Facial (300grams)", img: "https://safazzzz.github.io/.comm/images/s4.jpg", price: 1199, original: 1299, buyTwoPrice: 1999},
+        {name: "<span style='font-size: 0.6rem;'>Safa'z Natural Skin ShinerSoothing Aloevera(500ml)", img: "https://safazzzz.github.io/.comm/images/s5.jpg", price: 699, original: 799, buyTwoPrice: 1399}
     ],
     handFeet: [
         {name: "<span style='font-size: 0.6rem;'>Hand Cream", img: "hand1.jpg", price: 640, original: 800}
@@ -1228,12 +1233,13 @@ function showProducts(category, el) {
 async function shareProduct(category, index, name, price, img) {
     const cleanName = name.replace(/<[^>]*>?/gm, '');
     const baseUrl = 'https://safazzzz.github.io/.comm/product.html';
- 
-     const productUrl = `${baseUrl}?cat=${category}&idx=${index}&img=${encodeURIComponent(img)}`;
+    
+    // Pass the actual product image URL in the link
+    const productUrl = `${baseUrl}?img=${encodeURIComponent(img)}&cat=${category}&idx=${index}`;
     
     const shareData = {
         title: 'Safa\'z Product',
-        text: `Check out this amazing product: ${cleanName} for only PKR ${price}!\n\nImage: ${img}\nLink: ${productUrl}`,
+        text: `Check out this amazing product: ${cleanName} for only PKR ${price}!`,
         url: productUrl
     };
 
@@ -1252,7 +1258,27 @@ async function shareProduct(category, index, name, price, img) {
         }
     }
 }
-
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const img = urlParams.get('img');
+    
+    // Update OG image dynamically with the actual product image
+    if (img) {
+        const ogImage = document.querySelector('meta[property="og:image"]');
+        if (ogImage) ogImage.setAttribute('content', img);
+    }
+    
+    // Highlight the product
+    const index = urlParams.get('idx');
+    if (index) {
+        const productCards = document.querySelectorAll('.productCard');
+        if (productCards[index]) {
+            productCards[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            productCards[index].style.border = '3px solid #007bff';
+            productCards[index].style.boxShadow = '0 0 15px rgba(0,123,255,0.6)';
+        }
+    }
+});
 // Helper Functions
 function updateLiveTotal(input, price) {
     input.parentElement.querySelector('.price').innerText = "Total: PKR " + (input.value * price);
@@ -1822,6 +1848,7 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
+
 
 
 
