@@ -1219,7 +1219,7 @@ function showProducts(category, el) {
                 
                 <button class="btn share-btn" onclick="shareProduct('${category}', ${i}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')">
     <span class="share-icon">Share</span>📤
-    <div class="sharethis-inline-share-buttons" data-sharethis-website="safazzzz.github.io" data-sharethis-url="https://safazzzz.github.io/.comm/product.html?img=${encodeURIComponent(p.img)}&cat=${category}&idx=${i}"></div>
+    <div class="sharethis-inline-share-buttons" data-sharethis-website="safazzzz.github.io" data-sharethis-url="https://safazzzz.github.io/.comm/product.html?cat=${category}&idx=${i}"></div>
 </button>
             </div>
         </div>`;
@@ -1845,6 +1845,7 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
+
 
 
 
