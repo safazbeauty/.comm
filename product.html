@@ -1217,9 +1217,40 @@ function showProducts(category, el) {
                 <button class="btn addBtn" onclick="addToCart('${category}', ${i}, this)">Add To Cart</button>
                 <button class="btn buyBtn" onclick="buyNow('${category}', ${i}, this)">Buy Now</button>
                 
-                <button class="btn share-btn" onclick="shareProduct('${category}', ${i}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')">
-    <span class="share-icon">Share</span>📤
-    <div class="sharethis-inline-share-buttons" data-sharethis-website="safazzzz.github.io" data-sharethis-url="https://safazzzz.github.io/.comm/product.html?cat=${category}&idx=${i}"></div>
+             <!-- Clean ChatGPT-Style Share Button -->
+<button class="btn share-btn" 
+        onclick="shareProduct('${category}', ${i}, '${p.name.replace(/'/g, "\\'")}', ${p.price}, '${p.img}')" 
+        style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 90%;
+            max-width: 220px;
+            margin: 16px auto;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #FFD700, #FFC107, #FFE066);
+            color: #fff;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        "
+        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 22px rgba(0,0,0,0.4)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 18px rgba(0,0,0,0.3)';"
+>
+    <!-- ChatGPT-style HD Share Icon -->
+    <span style="display:flex; align-items:center; justify-content:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFFFFF" viewBox="0 0 24 24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+    </span>
+
+    <span style="margin-left:6px;">Share</span>
 </button>
             </div>
         </div>`;
@@ -1845,6 +1876,7 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
+
 
 
 
