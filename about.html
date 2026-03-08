@@ -704,6 +704,35 @@
     }
 }
 </style>
+    <!-- LEFT SIDE: Image Slideshow -->
+<div class="about-image-wrapper">
+    <img src="image1.jpg" alt="SAFA'z Slideshow" class="about-image" id="slideshow-image">
+</div>
+
+<script>
+    // Array of 8 images
+    const images = [
+        "image1.jpg",
+        "image2.jpg",
+        "image3.jpg",
+        "image4.jpg",
+        "image5.jpg",
+        "image6.jpg",
+        "image7.jpg",
+        "image8.jpg"
+    ];
+
+    let currentIndex = 0;
+    const slideshowImage = document.getElementById("slideshow-image");
+
+    function changeImage() {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back to first
+        slideshowImage.src = images[currentIndex];
+    }
+
+    // Change image every 3 seconds (3000ms)
+    setInterval(changeImage, 3000);
+</script>
                 <!-- Delivery & Trust Badges -->
                 <div class="trust-badges">
                     <div class="badge">
@@ -769,4 +798,5 @@
 
 </body>
 </html>
+
 
