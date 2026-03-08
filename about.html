@@ -2,17 +2,345 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>About Us - SAFA'z Beauty</title>
+    <title>SAFA'z</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    
-    <!-- Google Fonts -->
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+    .navbar-toggler {
+        border: none; /* Remove default border */
+    }
+
+    .navbar-toggler-icon {
+        background-image: none; /* Remove default icon */
+    }
+
+    .navbar-toggler:before,
+    .navbar-toggler:after,
+    .navbar-toggler span {
+        content: '';
+        display: block;
+        width: 30px; /* Width of each bar */
+        height: 4px; /* Height of each bar */
+        background-color: #ffca1a; /* Color of the bars */
+        margin: 6px auto; /* Space between bars */
+        border-radius: 2px; /* Rounded corners for bars */
+    }
+</style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-warning" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<!-- TOP NAVBAR -->
+<div style="
+    width: 100%;
+    background: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+">
+
+    <!-- Hamburger Button -->
+    <div onclick="openSidebar()" style="
+        font-size: 32px;
+        cursor: pointer;
+        color: #ffca1a;
+        font-weight: bold;
+        transition: transform 0.3s;
+    " onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'">
+        ☰
+    </div>
+
+    <!-- Logo + Text -->
+    <div style="display: flex; align-items: center; gap: 10px;">
+  <h2 style="
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    margin: 0 auto; /* Center horizontally */
+    font-weight: 800;
+    color: #ffca1a;
+    background: linear-gradient(45deg, #ffd700, #ffcc33);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.35), 0 0 12px rgba(255,215,0,0.6);
+    letter-spacing: 1px;
+    padding-right: 50px; /* Corrected */
+    text-align: center; /* Center text within the element */
+">
+    SAFA'<span style="font-size:0.65em; vertical-align: middle;">Z</span>
+</h2>
+        <img src="logo.jpg" alt="Logo" style="height: 60px; width: auto; border-radius:12px; box-shadow:0 0 15px rgba(255,202,26,0.7);" />
+      
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" 
+     style="
+        height:100%;
+        width:260px;
+        position:fixed;
+        top:0;
+        left:-280px;
+        background: linear-gradient(180deg, #fffde7, #ffe880);
+        overflow-x:hidden;
+        transition:0.5s ease;
+        box-shadow:5px 0 25px rgba(0,0,0,0.2);
+        z-index:2000;
+        padding-top:80px;
+        border-right:2px solid #ffca1a;
+        border-radius:0 20px 20px 0;
+     ">
+
+    <!-- Close Button -->
+    <a href="javascript:void(0)" onclick="closeSidebar()" 
+       style="
+            position:absolute; 
+            top:20px; 
+            right:20px; 
+            font-size:36px; 
+            text-decoration:none; 
+            color:#ffca1a; 
+            font-weight:bold;
+            transition: transform 0.3s, color 0.3s;
+       "
+       onmouseover="this.style.transform='rotate(90deg)'; this.style.color='#ffd700';"
+       onmouseout="this.style.transform='rotate(0deg)'; this.style.color='#ffca1a';"
+    >
+        ×
+    </a>
+
+ <!-- ===== SIDEBAR LOGO ===== -->
+<div style="
+    text-align:center;
+    margin-bottom:50px;
+    position:relative;
+    z-index:2;
+">
+  <span style="
+    font-size:40px;
+    font-weight:900;
+    letter-spacing:6px;
+    background: linear-gradient(45deg, #ffca1a, #000, #ffd700, #000);
+    background-size:400% 400%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+    animation:logoGradient 4s ease infinite;
+    text-shadow:
+        0 0 10px rgba(255,202,26,0.7),
+        0 0 20px rgba(0,0,0,0.5),
+        0 0 30px rgba(255,255,255,0.3);
+    transform: rotateX(3deg) rotateY(2deg);
+  ">
+    SAFA'z
+  </span>
+</div>
+
+<style>
+@keyframes logoGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+</style>
+
+<!-- ===== MENU TITLE ===== -->
+<div style="
+    text-align:center;
+    font-size:26px;
+    font-weight:900;
+    color:#ffca1a;
+    letter-spacing:2px;
+    margin-bottom:30px;
+    text-shadow:0 0 5px #000, 0 0 10px #ffca1a;
+    animation:menuGlow 2s ease-in-out infinite alternate;
+">MENU</div>
+ 
+   <!-- Menu Links -->
+<a href="index.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Home
+</a>
+
+<a href="about.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   About
+</a>
+
+<a href="product.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Products
+</a>
+
+<a href="feature.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Features
+</a>
+
+<a href="contact.html" style="
+    display:block;
+    padding:18px 30px;
+    text-decoration:none;
+    color:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight:700;
+    font-size:18px;
+    text-align:center;
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s;
+" onmouseover="this.style.background='#ffca1a'; this.style.color='black'; this.style.fontWeight='900'; this.style.boxShadow='0 0 15px rgba(255,202,26,0.7)'" 
+   onmouseout="this.style.background='transparent'; this.style.color='black'; this.style.fontWeight='700'; this.style.boxShadow='none'">
+   Contact
+</a>
+
+<!-- Button -->
+<div style="padding:25px;">
+    <a href="product.html" style="
+        display:block;
+        background:#ffca1a;
+        color:black;
+        text-align:center;
+        padding:14px;
+        font-weight:800;
+        font-family: 'Times New Roman', Times, serif;
+        text-decoration:none;
+        border-radius:12px;
+        box-shadow:0 5px 20px rgba(255,202,26,0.6);
+        transition: transform 0.3s, box-shadow 0.3s;
+    " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 25px rgba(255,202,26,0.8)'; this.style.fontWeight='900'" 
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 5px 20px rgba(255,202,26,0.6)'; this.style.fontWeight='800'">
+       Buy Now
+    </a>
+</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const sidebar = document.getElementById("sidebar");
+    const menuItems = sidebar.querySelectorAll("a, div a"); // all links/buttons inside sidebar
+
+    // Prepare items: initially shifted left and invisible
+    menuItems.forEach(item => {
+        item.style.transform = "translateX(-50px)";
+        item.style.opacity = "0";
+    });
+
+    // Open sidebar with sequential animation
+    window.openSidebar = function() {
+        sidebar.style.left = "0";
+
+        menuItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.transition = "transform 0.5s ease-out, opacity 0.5s ease-out";
+                item.style.transform = "translateX(0)";
+                item.style.opacity = "1";
+            }, index * 170); // 150ms delay per item
+        });
+    }
+
+    // Close sidebar
+    window.closeSidebar = function() {
+        sidebar.style.left = "-280px";
+
+        // Reset items to start position for next open
+        menuItems.forEach(item => {
+            item.style.transition = "none";
+            item.style.transform = "translateX(-50px)";
+            item.style.opacity = "0";
+        });
+    }
+
+    // Close sidebar on click outside
+    document.addEventListener("click", function(event) {
+        if (sidebar.style.left === "0px") { 
+            const isClickInside = sidebar.contains(event.target);
+            const isHamburger = event.target.closest("[onclick='openSidebar()']");
+            if (!isClickInside && !isHamburger) {
+                closeSidebar();
+            }
+        }
+    });
+});
+</script>
+
+
 
     <style>
         :root {
@@ -778,13 +1106,184 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer style="background: #000; padding: 20px; text-align: center; border-top: 1px solid #333;">
-        <p style="color: #666; font-size: 0.9rem;">&copy; 2023 SAFA'z Beauty. All Rights Reserved.</p>
-    </footer>
+  <!-- Footer Start -->
+<div class="container-fluid footer" style="background-color: #ffe880;">
+    <div class="container py-5">
+        <div class="row g-5">
+<br>
+            <br>
+            
+    <div style="font-family:'Times New Roman',serif; text-align:center; padding:20px 15px; background:#fffdf6; border-radius:15px; box-shadow:0 6px 18px rgba(0,0,0,0.08); max-width:420px; margin:auto;">
 
+    <a href="index.html" style="text-decoration:none; color:#000;">
+        <img src="logo.jpg" alt="SAFA'z Beauty Logo" 
+        style="height:65px; width:auto; margin-bottom:8px;">
+
+        <h3 style="margin:5px 0; font-weight:bold; color:#b8860b; letter-spacing:1px;">
+            SAFA'z Beauty
+        </h3>
+    </a>
+
+    <div style="width:60px; height:3px; background:#ffd700; margin:8px auto 12px auto; border-radius:3px;"></div>
+
+    <p style="font-size:15px; line-height:1.6; color:#444; margin:0;">
+        Discover the luxurious world of <b>SAFA'Z Skincare</b>. Our premium beauty
+        products are specially crafted to nourish, brighten, and rejuvenate your skin.
+        From powerful serums to deeply hydrating moisturizers, every formula is
+        designed to enhance your natural glow and keep your skin healthy, radiant,
+        and beautifully refreshed every day.
+    </p>
+
+</div>
+            <!-- Contact -->
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                <h5 class="mb-4" style="color: #ffc107; font-weight: bold;">Get In Touch</h5>
+                <p><i class="fa fa-map-marker-alt me-3"></i>52-Riwaz Garden Lower Mall Lahore, Punjab, Pakistan</p>
+                <p><i class="fa fa-phone-alt me-3"></i>+92-3364454964 </p>
+                <p><i class="fa fa-envelope me-3"></i>fashioplanet.official1@gmail.com</p>
+                   <a class="btn btn-square me-1" href="https://wa.me/923364454964" target="_blank" style="border: 2px solid #ffc107; color: #ffc107;">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<a class="btn btn-square me-1" href="#" style="border: 2px solid #ffc107; color: #ffc107;">
+    <i class="fab fa-facebook-f"></i>
+</a>
+<a class="btn btn-square me-1" href="#" style="border: 2px solid #ffc107; color: #ffc107;">
+    <i class="fab fa-instagram"></i>
+</a>
+<br>
+       
+<div class="tiktok-section py-4" style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ccc;">
+  
+    <h2 style="color: #ffc107; text-align: center; margin-bottom: 20px;">Follow Us on TikTok</h2>
+
+    <!-- TikTok Profile for Safa Butt -->
+    <div class="tiktok-profile mb-3" style="border: 1px solid #ffc107; padding: 15px; border-radius: 5px; display: flex; align-items: center;">
+        <div style="flex: 1;">
+            <a href="https://www.tiktok.com/@safabutt199?_r=1&_d=f1cgl947m0f4eg&sec_uid=MS4wLjABAAAAsdj8WlvEdbYKRN0bF4_ckWOTsSiWCbR8Lj7CTpUMj5lyYLqFkqpTyzdRywO4mCcs&share_author_id=7022706857421652998&sharer_language=en&source=h5_m&u_code=dlac106cg1bdf" style="text-decoration: none; color: #333;">
+                <strong>Follow Safa Butt on TikTok</strong>
+            </a>
+            <p style="margin: 5px 0; color: #333;">Followers: 82.2K</p>
+            <p style="margin: 5px 0; color: #333;">Following: 313</p>
+            <p style="margin: 5px 0; color: #333;">Likes: 1.4M</p>
+            <p style="margin: 5px 0; color: #333;">Watch awesome short videos created by Safa Butt.</p>
+        </div>
+       
+    </div>
+
+    <!-- TikTok Profile for Fashion Planet -->
+    <div class="tiktok-profile" style="border: 1px solid #ffc107; padding: 15px; border-radius: 5px; display: flex; align-items: center;">
+        <div style="flex: 1;">
+            <a href="https://www.tiktok.com/@fashion_planet.official?_r=1&_t=ZG-94WbKDpZwLg" style="text-decoration: none; color: #333;">
+
+                <strong>Follow Fashion_planet on TikTok</strong>
+            </a>
+            <p style="margin: 5px 0; color: #333;">Followers: 11.9K</p>
+            <p style="margin: 5px 0; color: #333;">Following: 263</p>
+            <p style="margin: 5px 0; color: #333;">Likes: 171.7K</p>
+            <p style="margin: 5px 0; color: #333;">Watch awesome short videos created by Fashion Planet.</p>
+        </div>
+       
+    </div>
+</div>
+
+        
+                </div>
+            </div>
+
+            <!-- Products -->
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                <h5 class="mb-4" style="color: #ffc107; font-weight: bold;">Our Products</h5>
+                <a class="d-block mb-2" href="#" style="color: #000;">Hand and Foot Cream</a>
+                <a class="d-block mb-2" href="#" style="color: #000;">Soothing Lotion</a>
+                <a class="d-block mb-2" href="#" style="color: #000;">Eyeshadows</a>
+                <a class="d-block mb-2" href="#" style="color: #000;">Shiner</a>
+                <a class="d-block mb-2" href="#" style="color: #000;">Serums</a>
+            </div>
+
+            <!-- Links -->
+            <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                <h5 class="mb-4" style="color: #ffc107; font-weight: bold;">Pages</h5>
+                <a class="d-block mb-2" href="about.html" style="color: #000;">About Us</a>
+                <a class="d-block mb-2" href="contact.html" style="color: #000;">Contact Us</a>
+                <a class="d-block mb-2" href="product.html" style="color: #000;">Products</a>
+                <a class="d-block mb-2" href="index.html" style="color: #000;">Home</a>
+               
+            </div>
+ <!-- Copyright -->
+    <div class="container wow fadeIn" data-wow-delay="0.1s">
+        <div class="copyright py-3" style="border-top: 1px solid #ffc107;">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a href="#" style="color: #ffc107; font-weight: bold;">safazbeauty.com</a>, All Rights Reserved.
+                    Designed By 
+                    <a href="" style="color: #ffc107; font-weight: bold;">Safa'z Developer</a>
+                </div>
+        </div>
+    </div>
+
+   
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-lg-square back-to-top"
+   style="background-color: #ffc107; color: #fff;">
+    <i class="bi bi-arrow-up"></i>
+</a>
+
+<script>
+function openSidebar() {
+    document.getElementById("sidebar").style.left = "0"; // Open from left
+    document.getElementById("overlay").style.display = "block";
+}
+
+function closeSidebar() {
+    document.getElementById("sidebar").style.left = "-260px"; // Hide to the left
+    document.getElementById("overlay").style.display = "none";
+}
+
+// Close sidebar when pressing ESC key
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeSidebar();
+    }
+});
+ const image = document.querySelector('.glowing-image');
+
+    function addGlow() {
+        image.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.7)'; // Golden glow
+    }
+
+    function removeGlow() {
+        image.style.boxShadow = 'none'; // Remove glow
+    }
+
+    // Event listener to add glow on hover
+    image.addEventListener('mouseover', addGlow);
+    image.addEventListener('mouseout', removeGlow);
+</script>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
 </body>
 </html>
+
 
 
 
