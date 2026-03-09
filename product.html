@@ -402,55 +402,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </style>
 
-<!-- ============================================ -->
-<!-- LIVE VISITOR COUNTER & NOTIFICATION SYSTEM -->
-<!-- ============================================ -->
-
 <style>
-    /* --- LIVE VISITOR COUNTER (Truly Transparent) --- */
+/* --- LIVE VISITOR COUNTER --- */
+.live-visitor-badge {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Position on the left */
+    background: rgba(255, 202, 26, 0.1); /* Transparent gold */
+    backdrop-filter: blur(6px);
+    color: #000; /* Text color */
+    padding: 8px 15px; /* Padding */
+    border-radius: 25px; /* Border radius */
+    font-weight: bold; 
+    font-size: 12px; /* Font size */
+    box-shadow: 0 3px 10px rgba(255, 202, 26, 0.25);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Space between dot and text */
+    animation: pulse 2s infinite;
+    cursor: pointer; 
+    border: 1px solid rgba(255, 202, 26, 0.2);
+    max-width: 200px; 
+    word-wrap: break-word;
+    transition: all 0.3s ease; 
+}
+
+/* Icon shape when clicked */
+.live-visitor-badge.clicked {
+    padding: 5px; /* Adjust padding for icon shape */
+    border-radius: 50%; /* Make it circular */
+    font-size: 12px; /* Keep the font size for visibility */
+    width: 40px; /* Fixed width for icon */
+    height: 40px; /* Fixed height for icon */
+    justify-content: center; /* Center the content */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
     .live-visitor-badge {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: rgba(255, 202, 26, 0.15); /* Very Transparent Gold */
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        color: #000;
-        padding: 10px 20px;
-        border-radius: 50px;
-        font-weight: bold;
-        font-size: 14px;
-        box-shadow: 0 4px 15px rgba(255, 202, 26, 0.3);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        animation: pulse 2s infinite;
-        cursor: default;
-        border: 1px solid rgba(255, 202, 26, 0.3);
-        max-width: 280px;
-        word-wrap: break-word;
+        bottom: 15px;
+        left: 15px;
+        max-width: 160px; 
+        font-size: 10px; 
+        padding: 6px 10px; 
     }
+}
 
-    .live-dot {
-        width: 10px;
-        height: 10px;
-        background: #000;
-        border-radius: 50%;
-        animation: blink 1s infinite;
-    }
+.live-dot {
+    width: 10px;
+    height: 10px;
+    background: #000; 
+    border-radius: 50%; 
+    animation: blink 1s infinite;
+}
 
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
 
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-    }
-
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
     /* --- LIVE PURCHASE NOTIFICATION --- */
     .live-notification {
     position: fixed;
@@ -526,6 +542,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="live-visitor-badge">
     <div class="live-dot"></div>
     <span id="visitorCount">Loading...</span> people are viewing this page
+    
 </div>
 
 <!-- LIVE PURCHASE NOTIFICATION -->
@@ -544,6 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </audio>
 
 <script>
+  
     // --- CUSTOMER NAMES (85% Female, 15% Male - Realistic Pakistani Names, NO "Bibi") ---
     const customerNames = [
         // Female Names (No "Bibi")
@@ -607,10 +625,6 @@ document.addEventListener("DOMContentLoaded", () => {
 "Kashaf Raza","Alysha Noor", "Zara Khan", "Khadija Ansari", "Sofia Malik", "Javeria Khan", "Nazia Ashraf", "Mehak Shah", "Samina Yusuf", "Nadia Parveen", "Rania Iqbal", "Shazia Mansoor", "Uzma Sheikh", "Tanisha Rafiq", "Areeba Khan", "Lubna Farooq", "Saira Javed", "Rukhshan Ahmed", "Dania Ali", "Nadia Malik",
 
     // Male Names
-        "Usman Ali", "Hassan Raza", "Bilal Ahmed", "Imran Shah",
-        "Omar Farooq", "Taha Hussain", "Kamran Khan", "Ali Raza",
-        "Feroz Butt", "Zain Butt", "Hamza Butt", "Yasir Butt",
-        "Rizwan Butt", "Asad Butt", "Junaid Butt", "Safa Butt"
     ];
 
     // --- PRODUCT NAMES ---
@@ -634,7 +648,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const notifQty = document.getElementById("notifQty");
         const notifImg = document.getElementById("notifImg");
         const notificationSound = document.getElementById("notificationSound");
-
+  notifName.textContent = ""; 
         // Random Data
         const randomName = customerNames[Math.floor(Math.random() * customerNames.length)];
         const randomProduct = productNames[Math.floor(Math.random() * productNames.length)];
@@ -659,13 +673,13 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             notification.classList.remove("notification-show");
             notification.classList.add("notification-hide");
-        }, 3000);
+        }, 4000);
     }
 
     // --- LIVE VISITOR COUNTER FUNCTION (Every 4 seconds, change by 1-3) ---
     let currentVisitors = 43; // Starting number
     const minVisitors = 20;
-    const maxVisitors = 62;
+    const maxVisitors = 64;
 
     function updateVisitorCount() {
         const visitorCountElement = document.getElementById("visitorCount");
@@ -682,7 +696,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // --- NOTIFICATION TIMING (30 sec → 1 min → 3 min → 5 min → repeat) ---
-    const notificationIntervals = [4000,9000,8000,10000,10000,30000,30000, 60000, 180000, 300000]; // 30s, 1m, 3m, 5m
+    const notificationIntervals = [3000,9000,12000,10000,90000,80000,40000,30000,40000, 60000, 80000, 80000, 80000, 80000, 90000]; // 30s, 1m, 3m, 5m
     let intervalIndex = 0;
 
     function scheduleNextNotification() {
@@ -2182,7 +2196,6 @@ function buyNow(category,index,btn){
 </body>
 
 </html>
-
 
 
 
